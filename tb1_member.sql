@@ -12,9 +12,9 @@ create table tb1_member(
 
 select id, name, birth, email, regiDate
 from (
-		select @rownum:=@rownum+1 as rownum, b.id, id, name, birth, email, regiDate
+		select @rownum:=@rownum+1 as rownum, b.id, name, birth, email, regiDate
         from (select @rownum:=0) as tmp, tb1_member as b
-        order by bno desc 
+        order by id desc 
 	) as mblistPage
     where rownum between '0' and '5';
 
